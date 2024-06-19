@@ -1,0 +1,50 @@
+<x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <section>
+        <!--button-->
+        <div class="flex justify-end mt-2 items-center">
+            <div class="flex justify-end mt-2 items-center">
+                <div x-data="{ open: false }" class="relative inline-block text-left">
+                    <div class="bg-gradient-custom-search rounded-full w-60 h-10 flex items-center justify-between px-3">
+                        <span class="text-black font-balsamiq font-medium text-xl">Secondary Factor</span>
+                        <button @click="open = !open" type="button" class="flex items-center justify-center" aria-expanded="true" aria-haspopup="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" :class="{'transform rotate-180': open}">
+                                <path fill="black" d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                
+                    <div x-show="open" @click.away="open = false" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
+                        <a href="/nilaiprofile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Core Factor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--form-->
+    <div class="mt-20 flex justify-center">
+        <div class="flex justify-start items-center">
+            <form >
+                <div class="flex items-center space-x-3" action="">
+                    <!-- Label untuk K5-->
+                    <label for="k5" class="bg-white w-60 h-14 flex items-center px-3">
+                        <span class="text-black font-balsamiq font-normal text-xl">K5</span>
+                    </label>
+                    <!-- Input untuk K5 -->
+                    <input id="k5" class="bg-white w-60 h-14 text-black font-balsamiq p-4  focus:outline-blue-500 " type="text">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4 flex justify-center">
+        <div class="flex justify-start items-center">
+            <div class="bg-blue-500 my-9 flex-row ml-96 p-3 gap-4 rounded-3xl font-balsamiq font-bold w-24 h-11 text-center hover:font-semibold hover:text-white tracking-widest active:bg-sky-600">
+                <a href="">Submit</a>
+            </div>
+        </div>
+    </div>
+</x-layout>
